@@ -39,7 +39,7 @@ jobs:
       - name: Get changes
         if: github.event_name == 'push'
         id: changes
-        uses: TNFSH-Programming-Contest/tps-actions/.github/actions/get-changes@main
+        uses: CKEFGISC/tps-actions/.github/actions/get-changes@main
 
       - name: Check push
         if: github.event_name == 'push'
@@ -62,7 +62,7 @@ jobs:
 
       - name: Filter problems
         id: run-problems
-        uses: TNFSH-Programming-Contest/tps-actions/.github/actions/run-problems@main
+        uses: CKEFGISC/tps-actions/.github/actions/run-problems@main
         with:
           requests: ${{ env.REQUEST }}
 
@@ -79,7 +79,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: TNFSH-Programming-Contest/tps-actions/.github/actions/install-tps@main
+      - uses: CKEFGISC/tps-actions/.github/actions/install-tps@main
         if: ${{ runner.name == 'Hosted Agent' || startsWith(runner.name, 'GitHub Actions') }}
 
       - name: Setup git

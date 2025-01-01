@@ -34,7 +34,7 @@ jobs:
       - name: Get changes
         if: github.event_name == 'push'
         id: changes
-        uses: TNFSH-Programming-Contest/tps-actions/.github/actions/get-changes@main
+        uses: CKEFGISC/tps-actions/.github/actions/get-changes@main
 
       - name: Check push
         if: github.event_name == 'push'
@@ -51,7 +51,7 @@ jobs:
 
       - name: Filter problems
         id: run-problems
-        uses: TNFSH-Programming-Contest/tps-actions/.github/actions/run-problems@main
+        uses: CKEFGISC/tps-actions/.github/actions/run-problems@main
         with:
           requests: ${{ env.REQUEST }}
 
@@ -64,7 +64,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: TNFSH-Programming-Contest/tps-actions/.github/actions/install-tps@main
+      - uses: CKEFGISC/tps-actions/.github/actions/install-tps@main
         if: ${{ runner.name == 'Hosted Agent' || startsWith(runner.name, 'GitHub Actions') }}
 
       - name: Install dependencies
@@ -118,7 +118,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - uses: TNFSH-Programming-Contest/tps-actions/.github/actions/convert-images@main
+      - uses: CKEFGISC/tps-actions/.github/actions/convert-images@main
 
       - name: Commit images
         run: |
@@ -157,7 +157,7 @@ jobs:
 
       - name: Get problems
         id: all-problems
-        uses: TNFSH-Programming-Contest/tps-actions/.github/actions/get-problems@main
+        uses: CKEFGISC/tps-actions/.github/actions/get-problems@main
 
       - name: Merge pdfs
         if: (github.event_name == 'push') || (github.event_name == 'workflow_dispatch' && inputs.merge)

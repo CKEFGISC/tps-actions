@@ -20,16 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: TNFSH-Programming-Contest/tps-actions/.github/actions/install-tps@main
+      - uses: CKEFGISC/tps-actions/.github/actions/install-tps@main
         if: ${{ runner.name == 'Hosted Agent' || startsWith(runner.name, 'GitHub Actions') }}
 
       - name: Download templates
         uses: actions/checkout@v3
         with:
-          repository: 'TNFSH-Programming-Contest/tps-task-templates'
+          repository: 'CKEFGISC/tps-task-templates'
           path: 'tps-task-templates'
 
-      - uses: TNFSH-Programming-Contest/tps-actions/.github/actions/new-problem@main
+      - uses: CKEFGISC/tps-actions/.github/actions/new-problem@main
         with:
           problem-count: ${{ inputs.count }}
 
